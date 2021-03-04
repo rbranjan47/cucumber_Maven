@@ -1,0 +1,12 @@
+brooklyn.catalog:
+  id: Selenium.Selenium_Maven.MySampleInCatalog
+  version: "1.0"
+  itemType: template
+  description: My Sample
+  displayName: MySample
+  iconUrl: classpath:///sample-icon.png
+  libraries:
+  - file:///Path/to/archetype/sample/target/Selenium_Maven-0.0.1-SNAPSHOT.jar
+  item:
+    services:
+    - type: Selenium.Selenium_Maven.MySample
