@@ -16,7 +16,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class broken_links 
+public class privacy_links 
 {
 	public static WebDriver driver;
 	public static JavascriptExecutor js;
