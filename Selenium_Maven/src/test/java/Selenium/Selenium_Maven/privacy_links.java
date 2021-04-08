@@ -23,10 +23,11 @@ public class privacy_links
 	public static long timeout = 20;
 	public static long pageload = 20;
 
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws InterruptedException, MalformedURLException, IOException 
 	{
 		System.setProperty("webdriver.chrome.driver", "D:\\rabi_thinksys\\chromedriver_win32\\chromedriver.exe");
-		// driver = new ChromeDriver();
+		 driver = new ChromeDriver();
 		driver = new ChromeDriver();
 
 		driver.manage().deleteAllCookies();
@@ -39,7 +40,7 @@ public class privacy_links
 		WebElement login = driver.findElement(
 				By.xpath("//a[@class='btn btn-primary btn-xs-2 btn-shadow btn-rect btn-icon btn-icon-left']"));
 		driver.getTitle();
-		wait.until(ExpectedConditions.elementToBeClickable(login));
+		//wait.until(ExpectedConditions.elementToBeClickable(login));
 		login.click();
 		driver.getTitle();
 		driver.findElement(By.xpath("//input[@placeholder='E-mail address']")).sendKeys("rbranjan47@gmail.com");
@@ -103,7 +104,7 @@ public class privacy_links
 		
 		driver.findElement(By.xpath("//i[@class='settings icon']/../../div/i")).click();
 		WebElement logout=driver.findElement(By.xpath("//span[contains(text(),'Log Out')]"));
-		wait.until(ExpectedConditions.elementToBeClickable(logout));
+		//wait.until(ExpectedConditions.elementToBeClickable(logout));
 		logout.click();
 		driver.quit();
 		
