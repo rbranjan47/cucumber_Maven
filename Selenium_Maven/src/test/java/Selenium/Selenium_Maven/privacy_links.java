@@ -13,7 +13,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class privacy_links 
@@ -36,6 +35,7 @@ public class privacy_links
 		driver.manage().timeouts().pageLoadTimeout(pageload, TimeUnit.SECONDS);
 		driver.get("https://freecrm.com/");
 
+		@SuppressWarnings("unused")
 		WebDriverWait wait = new WebDriverWait(driver, timeout);
 		WebElement login = driver.findElement(
 				By.xpath("//a[@class='btn btn-primary btn-xs-2 btn-shadow btn-rect btn-icon btn-icon-left']"));
