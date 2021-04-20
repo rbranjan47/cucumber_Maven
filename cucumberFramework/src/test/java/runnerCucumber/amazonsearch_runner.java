@@ -1,4 +1,4 @@
-package step_definition;
+package runnerCucumber;
 
 import org.junit.runner.RunWith;
 
@@ -9,18 +9,15 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions
 (
-		features = "src/test/resources/hooksDemo.feature",
-		glue = {"step_definition"},
+		features = "./cucumberFramework/src/test/java/featurePackage/amazon_search.feature",
+		glue = {"Step_definitions"},
 		monochrome = true,
 		plugin = {"pretty","html:target/HTMLReports",
 				  "json:target/JSON/report.json",
 				  "junit:target/JunitReports/Reports.xml"}
 	
 )
-public class runnerHooksDemo 
+public class amazonsearch_runner
 {
- public static void main(String[] args)
- {
-	 
- }
+
 }
