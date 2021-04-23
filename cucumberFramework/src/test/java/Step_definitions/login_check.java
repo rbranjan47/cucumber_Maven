@@ -33,8 +33,7 @@ public class login_check
 		try
 		{
 			prop= new Properties();
-			FileInputStream file=new FileInputStream("C:\\Users\\rbran\\eclipse-workspace"
-					+ "\\cucumberFramework\\config.properties");
+			FileInputStream file=new FileInputStream("C:\\Users\\rbran\\git\\Selenium_Maven\\cucumberFramework\\config.properties");
 			prop.load(file);
 		}
 		catch(FileNotFoundException e)
@@ -68,13 +67,13 @@ public class login_check
 	   Thread.sleep(3000);
 	   
 	   //clicking on the signin button   
-	   WebElement signInbtn = driver.findElement(By.xpath("//div[@id='nav-flyout-ya-signin']"
-	   		+ "//span[@class='nav-action-inner'][normalize-space()='Sign in']"));
+	   WebElement signInbtn = driver.findElement(By.xpath("//span[contains(text(),'Sign in')]"));
 	    @SuppressWarnings("deprecation")
 		WebDriverWait wait_element = new WebDriverWait(driver, 10);
 	    wait_element.until(ExpectedConditions.elementToBeClickable(signInbtn));
+	    signInbtn.click();
 	   
-	    WebElement email = driver.findElement(By.id("ap_email"));
+	    WebElement email = driver.findElement(By.xpath("//input[@id='ap_email']"));
 	    WebElement email_next = driver.findElement(By.id("continue"));
 	    WebElement password = driver.findElement(By.id("ap_password"));
 	    String email_address = prop.getProperty("amazon_id");

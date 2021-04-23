@@ -23,3 +23,12 @@ Feature: Login functionality in freecrm
     When user enters product name
     And clicks on the search button to get the product
     Then user is on product search result
+
+#Scenario outline is used for Parameters, whenever user have to pass multiple value
+
+  Scenario: Checking product order functionality in amazon
+    Given user is on the Homepage of amazon
+    When user enters product name
+    And clicks on the search button to get the product
+    And clicks on product and clicks on Add cart
+    Then user should able to order from the cart
