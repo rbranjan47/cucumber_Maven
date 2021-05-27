@@ -16,12 +16,21 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-Feature: Login functionality in amazon
+#Scenario outline is used for Parameters, whenever user have to pass multiple value
+Feature: User is making order
 
-  Scenario: Checking login functionality in amazon
-    Given user is on the Homepage of amazon
-      | https://www.amazon.in/ | rbranjan47@gmail.com |
-    When user enters product name
-      | asus laptop |
+  Background: user is login into amazon
+    | https://www.amazon.in/ |
+    Given user navigate to login page
+    When user enters valid email and password
+    Then user will redirect into homepage
+
+  Scenario Outline: Checking product order functionality in amazon
+    When user enters <product> name
     And clicks on the search button to get the product
-    Then user is on product search result
+    And clicks on product and clicks on Add cart
+    Then user should able to order from the cart
+
+    Examples: 
+      | product     |
+      | asus laptop |

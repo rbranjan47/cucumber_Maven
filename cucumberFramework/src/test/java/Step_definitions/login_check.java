@@ -15,6 +15,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -26,6 +27,7 @@ public class login_check
 {
 	public WebDriver driver;
 	public Properties prop;
+	
 	@SuppressWarnings("deprecation")
 	@Before
 	public void setup()
@@ -33,7 +35,7 @@ public class login_check
 		try
 		{
 			prop= new Properties();
-			FileInputStream file=new FileInputStream("C:\\Users\\rbran\\git\\Selenium_Maven\\cucumberFramework\\config.properties");
+			FileInputStream file=new FileInputStream(System.getProperty("user.dir")+"\\config.properties");
 			prop.load(file);
 		}
 		catch(FileNotFoundException e)
@@ -52,13 +54,20 @@ public class login_check
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		driver.manage().deleteAllCookies();
 	}
-	
+	//DataTable use to take data from the feature file
 	@Given("user is on the Homepage of amazon") 
-	public void user_is_on_the_homepage_of_amazon() throws InterruptedException
+	public void user_is_on_the_homepage_of_amazon(DataTable data) throws Throwable
 	{
 	   System.out.println("user is on the homepage of amazon");
 	   String ama_url = prop.getProperty("url");
-	   driver.get(ama_url);
+	   
+	   List<List<String>> obj = data.asLists();
+	   String data_url = obj.get(0).get(0);
+	   if (data_url.equalsIgnoreCase(ama_url))
+	   {
+		   System.out.println("Url is same as config value");
+	   }
+	   driver.get(data_url);
 	   
 	   //hovering on the login button
 	   WebElement login_btn = driver.findElement(By.xpath("//span[contains(text(),'Account & Lists')]"));
@@ -74,25 +83,40 @@ public class login_check
 	    signInbtn.click();
 	   
 	    WebElement email = driver.findElement(By.xpath("//input[@id='ap_email']"));
-	    WebElement email_next = driver.findElement(By.id("continue"));
-	    WebElement password = driver.findElement(By.id("ap_password"));
 	    String email_address = prop.getProperty("amazon_id");
-	    String pass_word = prop.getProperty("amazon_pwd");
-	    email.sendKeys(email_address);
+	    String data_email = obj.get(0).get(1);
+	    if (data_email.equalsIgnoreCase(email_address))
+		   {
+			   System.out.println("Username is same as config value");
+		   }
+	    email.sendKeys(data_email);
+	    
+	    WebElement email_next = driver.findElement(By.xpath("//input[@id='continue']"));
 	    email_next.click();
+	    
+	    WebElement password = driver.findElement(By.xpath("//input[@id='ap_password']"));
+	    String pass_word = prop.getProperty("amazon_pwd");
 	    password.sendKeys(pass_word);
+	    
 	    //clicking on sign in button
-	    driver.findElement(By.xpath("signInSubmit")).click();
+	    driver.findElement(By.xpath("//input[@id='signInSubmit']")).click();
 	}
 	
 
 	@When("user enters product name")
-	public void user_enters_product_name() 
+	public void user_enters_product_name(DataTable datatable) 
 	{
 	   System.out.println("user enters the product name");
-	   WebElement search_bar = driver.findElement(By.id("twotabsearchtextbox"));
+	   WebElement search_bar = driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']"));
 	   String product_name = prop.getProperty("product_name");
-	   search_bar.sendKeys(product_name);
+	   List<List<String>> prod = datatable.asLists();
+	   String data_product = prod.get(0).get(0);
+	   //if conditions
+	   if (data_product.equalsIgnoreCase(product_name))
+	   {
+		   System.out.println("Profuct name is same as config file");
+	   }
+	   search_bar.sendKeys(data_product);
 	}
 
 	@When("clicks on the search button to get the product")
@@ -108,12 +132,16 @@ public class login_check
 	{
 	    System.out.println("user is on the product search result");
 	    List<WebElement> products_name = driver.findElements(By.xpath("//div[@class='s-main-slot s-result-list s-search-results sg-row']"));
-	    System.out.println(products_name);
+	    for (int i=0; i<products_name.size();i++)
+	    {
+	    System.out.println(products_name.get(i).getText());
+	    }
 	}
 	
 	@After
-	public void exitup()
+	public void exitup() throws InterruptedException
 	{
+		Thread.sleep(3000);
 		driver.close();
 	}
 }

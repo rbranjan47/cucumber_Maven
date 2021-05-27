@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions
 (
-		features = "src/test/java/featurePackage",
+		features = "src/test/java/featurePackage/amazon_search.feature",
 		glue = "Step_definitions",
 		monochrome = true,
 		plugin = {"pretty","html:target/HTMLReports",

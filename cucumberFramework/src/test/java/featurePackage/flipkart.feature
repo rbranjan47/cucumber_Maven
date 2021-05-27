@@ -16,12 +16,9 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-Feature: Login functionality in amazon
-
-  Scenario: Checking login functionality in amazon
-    Given user is on the Homepage of amazon
-      | https://www.amazon.in/ | rbranjan47@gmail.com |
-    When user enters product name
-      | asus laptop |
-    And clicks on the search button to get the product
-    Then user is on product search result
+Feature: Searching product in flipkart
+@search_product_test
+ Scenario: User is searching the Product
+    Given User is on flipkart page with logged in
+    When User search the product
+    Then User got multiple result for searched profuduct
