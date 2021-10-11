@@ -24,13 +24,13 @@ import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import junit.framework.Assert;
 
+@SuppressWarnings("deprecation")
 public class amazon_orderTest 
 {
 	public WebDriver driver;
 	public Properties proper;
 	String product;
 	
-	@SuppressWarnings("deprecation")
 	@Before
 	public void setup()
 	{
@@ -83,7 +83,7 @@ public class amazon_orderTest
 		   
 		   //clicking on the signin button   
 		   WebElement signInbtn = driver.findElement(By.xpath("//span[contains(text(),'Sign in')]"));
-		    @SuppressWarnings("deprecation")
+		    
 			WebDriverWait wait_element = new WebDriverWait(driver, 10);
 		    wait_element.until(ExpectedConditions.elementToBeClickable(signInbtn));
 		    signInbtn.click();
@@ -110,7 +110,6 @@ public class amazon_orderTest
 		    driver.findElement(By.xpath("//input[@id='signInSubmit']")).click();
 	}
 
-	@SuppressWarnings("deprecation")
 	@Then("user will redirect into homepage")
 	public void user_will_redirect_into_homepage()
 	{
@@ -120,7 +119,6 @@ public class amazon_orderTest
 	    
 	}
 
-	@SuppressWarnings("deprecation")
 	@When("user enters {String} name ")
 	public void user_enters_asus_laptop_name(String product) 
 	{
