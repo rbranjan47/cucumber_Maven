@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 
@@ -15,15 +17,20 @@
 
 	<name>Sample Apache Brooklyn Project Selenium:Selenium_Maven v0.0.1-SNAPSHOT</name>
 	<description>
-    Sample Apache Brooklyn Project for Java entity development, and OSGi bundle generation.
-  </description>
+		Sample Apache Brooklyn Project for Java entity development, and OSGi
+		bundle generation.
+	</description>
 
-	<!-- Optional metadata (commented out in this sample) <url>https://github.com/acme/sample</url> 
+	<!-- Optional metadata (commented out in this sample)
+	<url>https://github.com/acme/sample</url> 
 		<licenses> <license> <name>The Apache Software License, Version 2.0</name> 
-		<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url> <distribution>repo</distribution> 
-		</license> </licenses> <developers> <developer> <name>Sample Project Committers</name> 
-		</developer> </developers> <scm> <connection>scm:git:git://github.com/acme/sample</connection> 
-		<developerConnection>scm:git:git@github.com:acme/sample.git</developerConnection> 
+		<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+	<distribution>repo</distribution> 
+		</license> </licenses> <developers> <developer> <name>Sample Project
+	Committers</name> 
+		</developer> </developers> <scm>
+	<connection>scm:git:git://github.com/acme/sample</connection>
+	<developerConnection>scm:git:git@github.com:acme/sample.git</developerConnection> 
 		<url>http://github.com/acme/sample</url> </scm> -->
 
 	<repositories>
@@ -51,11 +58,12 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<!--
+		https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>4.2.0</version>
+			<version>4.18.1</version>
 		</dependency>
 
 		<dependency>
@@ -67,30 +75,33 @@
 		</dependency>
 
 		<dependency>
-			<!-- includes org.apache.brooklyn.test.support.LoggingVerboseReporter -->
+			<!-- includes
+			org.apache.brooklyn.test.support.LoggingVerboseReporter -->
 			<groupId>org.apache.brooklyn</groupId>
 			<artifactId>brooklyn-utils-test-support</artifactId>
 			<version>${brooklyn.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		<!--
+		https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.23.0</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>7.4.0</version>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.2</version>
 			<scope>test</scope>
 		</dependency>
 
 
 		<dependency>
-			<!-- for useful entity testing, such as TestEntity and BrooklynAppUnitTestSupport -->
+			<!-- for useful entity testing, such as TestEntity and
+			BrooklynAppUnitTestSupport -->
 			<groupId>org.apache.brooklyn</groupId>
 			<artifactId>brooklyn-core</artifactId>
 			<version>${brooklyn.version}</version>
@@ -124,8 +135,9 @@
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-java</artifactId>
-			<version>6.10.3</version>
+			<version>7.15.0</version>
 		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
 		<dependency>
@@ -135,18 +147,21 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/net.masterthought/maven-cucumber-reporting -->
+		<!--
+		https://mvnrepository.com/artifact/net.masterthought/maven-cucumber-reporting -->
 		<dependency>
 			<groupId>net.masterthought</groupId>
 			<artifactId>maven-cucumber-reporting</artifactId>
 			<version>5.5.0</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+		<!--
+		https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
-			<version>5.2.0</version>
+			<version>5.7.0</version>
 		</dependency>
+
 
 	</dependencies>
 	<build>
@@ -172,8 +187,10 @@
 						</goals>
 						<configuration>
 							<projectName>cucumber_Maven</projectName>
-							<outputDirectory>${project.build.directory}/cucumber-report-html</outputDirectory>
-							<cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
+							<outputDirectory>
+								${project.build.directory}/cucumber-report-html</outputDirectory>
+							<cucumberOutput>
+								${project.build.directory}/cucumber.json</cucumberOutput>
 						</configuration>
 					</execution>
 				</executions>

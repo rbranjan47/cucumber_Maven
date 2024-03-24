@@ -1,0 +1,23 @@
+  >>>>>  Cucumber 
+         - Cucumber is a tool, supports BDD(Behaviour Driven Development) framework
+         
+         
+         - Cucmber   -> Java 
+                     -> Python
+                     -> .Net
+                     -> PHP
+                     -> Javascript
+                     -> Perl
+                 
+         - and language specifically:
+            > SpecFlow  - .Net
+            > Behave    - Python
+            > Jasmine   - JavaScript
+            > JBehave   - Jave
+            > Behat     - Php
+            > Kahlan    - Php
+            > DaSpc     - Javascript
+            > Cucumber.js - Javascript    
+            
+//cucumber .7x  = https://www.youtube.com/watch?v=dwcRdXB_39k
+

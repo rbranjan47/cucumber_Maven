@@ -39,7 +39,7 @@ public class privacy_links {
 		// wait.until(ExpectedConditions.elementToBeClickable(login));
 		login.click();
 		driver.getTitle();
-		driver.findElement(By.xpath("//input[@placeholder='E-mail address']")).sendKeys("rbranjan47@gmail.com");
+		driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys("rbranjan47@gmail.com");
 		driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("Rabi8936@#");
 
 		driver.findElement(By.xpath("//div[@class='ui fluid large blue submit button']")).click();

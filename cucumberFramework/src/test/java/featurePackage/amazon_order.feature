@@ -21,10 +21,12 @@ Feature: User is making order
 
   Background: user is login into amazon
     | https://www.amazon.in/ |
+
     Given user navigate to login page
     When user enters valid email and password
     Then user will redirect into homepage
 
+   
   Scenario Outline: Checking product order functionality in amazon
     When user enters <product> name
     And clicks on the search button to get the product
@@ -32,5 +34,5 @@ Feature: User is making order
     Then user should able to order from the cart
 
     Examples: 
-      | product     |
+      | product |
       | asus laptop |

@@ -10,7 +10,8 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions
 (
 		features = "src/test/java/featurePackage/amazon_order.feature",
-		glue = "Step_definitions.amazon_orderTest",
+		glue = "Step_definitions.amazon_orderTest.java",
+		dryRun = true,
 		monochrome = true,
 		plugin = {"pretty","html:target/HTMLReports_order",
 				  "json:target/JSON/report_order.json",

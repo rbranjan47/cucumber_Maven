@@ -21,3 +21,9 @@
 2022-05-30 00:21:01,869 INFO  i.g.b.wdm.WebDriverManager [main]: Exporting webdriver.chrome.driver as C:\Users\rbran\.cache\selenium\chromedriver\win32\102.0.5005.61\chromedriver.exe
 2022-05-30 00:21:40,638 INFO  i.g.b.wdm.WebDriverManager [main]: Using chromedriver 102.0.5005.61 (resolved driver for Chrome 102)
 2022-05-30 00:21:40,661 INFO  i.g.b.wdm.WebDriverManager [main]: Exporting webdriver.chrome.driver as C:\Users\rbran\.cache\selenium\chromedriver\win32\102.0.5005.61\chromedriver.exe
+2024-03-09 20:24:52,581 INFO  i.g.b.wdm.WebDriverManager [main]: Using chromedriver 122.0.6261.111 (resolved driver for Chrome 122)
+2024-03-09 20:24:52,773 INFO  i.g.b.wdm.online.Downloader [main]: Downloading https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.111/win64/chromedriver-win64.zip
+2024-03-09 20:24:53,875 INFO  i.g.b.wdm.online.Downloader [main]: Extracting driver from compressed file chromedriver-win64.zip
+2024-03-09 20:24:54,064 INFO  i.g.b.wdm.WebDriverManager [main]: Exporting webdriver.chrome.driver as C:\Users\rbran\.cache\selenium\chromedriver\win64\122.0.6261.111\chromedriver.exe
+2024-03-09 20:26:40,676 INFO  i.g.b.wdm.WebDriverManager [main]: Using chromedriver 122.0.6261.111 (resolved driver for Chrome 122)
+2024-03-09 20:26:40,722 INFO  i.g.b.wdm.WebDriverManager [main]: Exporting webdriver.chrome.driver as C:\Users\rbran\.cache\selenium\chromedriver\win64\122.0.6261.111\chromedriver.exe
