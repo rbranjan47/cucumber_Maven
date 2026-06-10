@@ -1,5 +1,5 @@
   >>>>>  Cucumber 
-         - Cucumber is a tool, supports BDD(Behaviour Driven Development) framework
+         - Cucumber is a design framework, supports BDD(Behaviour Driven Development) framework
          
          
          - Cucmber   -> Java 
@@ -21,3 +21,171 @@
             
 //cucumber .7x  = https://www.youtube.com/watch?v=dwcRdXB_39k
 
+//>>>> Syllabus:
+1. Understand Gherkin Syntax
+2. Understand Cucumber Scenarios
+3. Feature files & Step Definition files
+4. cucumber Test Runner (Junit & TestNg)
+5. Cucumber regular expressions
+6. Data Driven
+7. Cucumber tags & Background keyword
+8. Cucumber Scenario outline for parameterization
+9. Cucumber Datatables
+10. Cucumber hooks
+11.Tagged Hooks mechanism
+12.Cucumber plugins
+13.Cucumber reports
+14.Cucumber attributes
+15.Cucumber Parallel execution
+
+15. Build Maven Project with all the framework dependencies
+16. Develop End to end Selenium Web Scenarios in the feature file
+17. Implement TestNG /Junit Runner to run the framework
+18. Understand the Single responsibility principle to distribute the implementation into multiple Step definitions.
+19. Importance of Dependency injection to share the data between the Steps file
+20. Understand the Page object Pattern to drive the locators from page files
+21. Implement Factory Design pattern by writing PageObjectManager class to create objects of all PO classes
+22. How driver can be configured and distributed across the files in the framework
+23. How to run Cucumber Scenarios in Parallel Mode using Cucumber TestNG Runner
+24. Build Test utilities for reusable Selenium methods
+25. Implement Cucumber Hooks to capture Screenshots on test failures
+26. Implement Cucumber Tags to run selected tests in the framework
+27. Parameterizing the test data to run the Scenarios with multiple data sets
+28. Creating HTML & Extent reports to run Cucumber Selenium tests
+29. Running tests in parallel mode and generate Extent reports with screenshots attached for failed Scenarios
+30. Run the cucumber tests using Maven & Command line options
+31. Integrate the Framework to CI/CD Jenkins and Schedule the Jobs on regular time Interval
+32. Create Parameterized Jenkin job to dynamically send the global properties at run time of Job execution
+
+
+// 1. Understand Gherkin: An language to describe Software Behaviour
+
+      Gherkin Syntax:
+      > Feature
+      > Scenario
+      > Scenario Outline
+      > Given
+      > When
+      > Then
+      > And
+      > Put
+      
+// 2. Understand Cucumber Scenarios
+  
+      > Using Gherkin Syntax we can write Cucumber Scenario
+      
+//3. Feature files & Step Definition files
+ 
+      > Feature files: Where We input test case steps using Gherkin Syntax
+      > Step-Definiation: Where we provide Feature File's Step's Implementation.
+     
+//4.  Cucumber Test Runner (Junit & TestNg)    
+      > Runner file, From where we initiate our Impleted test cases.
+      
+      > 
+      @CucumberOptions
+(
+		features = "src/test/java/featurePackage/",
+		glue = "Step_definitions",
+		dryRun = true,
+		tags = "@smokeTest and @regressionTest",
+		monochrome = true
+		plugin = {"pretty","html:target/HTMLReports_order",
+			  "json:target/JSON/report_order.json",
+			  "junit:target/JunitReports/Reports_order.xml"}
+)
+
+      > Must extends 'AbstractTestNGCucumberTests' class 
+      
+//5. Cucumber regular expressions
+      >>>>> We can use Regex: (.+) and (.+)$
+     
+     
+     
+//6. Data Driven
+
+    Here it data is passed after Scenario's 1 step
+    
+      > When user signup into application
+      
+         |TestUser|
+         |passwordTest|
+         |testemail@email.com|
+         |90873625533|
+         
+         
+         Now, in Sept Defintion file
+         @When("When user signup into application")
+         public void When_user_signup_into_application(List<String> data)   in place of database defined by default
+         {
+         //to get Data
+         data.get(0);
+         data.get(1);
+         
+         }
+    
+    //NOTE: THIS IS NOT SIMILAR TO EXAMPLES USED IN SCENARIO OUTLINE
+            In Scanario outline's Exmaples: Each Row is being executed for given all steps.     
+      
+      
+      
+//7. Cucumber tags & Background keyword 
+       >> We can sepearte our test cases marking tags in Feature File like
+       
+           @regression
+           Scenario: Testing Software with Regression
+           
+           @smoke
+           Scenario: Testing Software with Smoke
+           
+           and Providing tags in Cucumber Options along with Feature, Glue in Runner File  like
+           
+            @CucumberOptions
+            (
+		       features = "src/test/java/featurePackage/",
+		       glue = "Step_definitions",
+		       dryRun = true,
+		       tags = "@smokeTest and not @regressionTest",
+		       
+		       
+		       
+    Backgorund Keyword:  
+          Repeated Steps in each test scnearion in a feature file, can defined user using Background.
+           and will execute BEFORE EVERY Scenario.
+           
+          Ex.-  
+          Background: 
+          Given Setup database enteries
+          When browser is launched from config variables
+          And hit the home page url of banking site
+          
+          
+          Scenario:
+          Given Admin page launched........etc
+          
+          
+
+//10. Cucumber Hooks
+         -- Similar to Background Keyword
+         -- Used to Starting a Browser, Clearing Cookies, Connecting Database.....etc
+         -- Some Hooks: 
+                > @Before, i.e. Before Each Scenario
+                > @After, i.e. After Each Scenario
+                > @Before(order=1)
+                > @Before(order=2, value="@screenshots") i.e., Execution based on order and tags
+                > @BeforeStep
+                > @AfterStep
+                
+         -- Order of Hooks:
+              Before > Background > Scenario/Scneario Outline > After     
+                
+          
+12.Cucumber plugins
+13.Cucumber reports
+         > we can write report plug-in along with, in Runner Class.
+              @CucumberOptions	(feature = "src/test/java/feature",
+                                 glue = "stepsDefitions",
+                                 monochrome = true,
+                                 tags = "@smokeTest and @regressionTest",
+                                 plugin = {"pretty", "html:reportPath.html", "json:reportPath.json"})      
+          
